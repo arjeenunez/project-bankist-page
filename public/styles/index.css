@@ -83,3 +83,16 @@ html {
 h6 {
     font-size: 1.15rem;
 }
+
+.joinPage {
+    background-color: #37383d;
+}
+
+.contact-links {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-copyright {
+    color: rgb(149, 146, 146);
+}
