@@ -53,3 +53,33 @@ html {
     left: 0;
     z-index: -1;
 }
+
+.testimonials-slider {
+    width: 65%;
+}
+
+.arrowContainer {
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+}
+
+.testimonials-quote {
+    font-size: 15rem;
+    top: -25%;
+    color: green;
+}
+
+.testimonial-photo {
+    width: 12%;
+    border-radius: 50%;
+}
+
+h6 {
+    font-size: 1.15rem;
+}
