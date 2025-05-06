@@ -1,0 +1,36 @@
+body,
+html {
+    height: 100vh;
+    width: 100%;
+}
+
+.mainContainer {
+    width: 80%;
+}
+
+.text-lightBlack {
+    color: rgb(67, 67, 67);
+}
+
+.splash-heading {
+    font-size: 4em;
+    line-height: 0.98em;
+    color: rgb(67, 67, 67);
+}
+
+.splash-heading-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, rgb(159, 228, 159), rgb(0, 205, 205));
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transform: scale(1.02) skew(-10deg, 0deg);
+    opacity: 0.8;
+    padding: 1rem 0.5rem;
+}
+
+.splash-link {
+    color: rgb(63, 168, 105);
+    font-weight: bold;
+}
