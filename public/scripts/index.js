@@ -1,0 +1,36 @@
+'use strict';
+
+const slideAction = function () {
+    const testimonials = document.querySelectorAll('.testimonials-content');
+    let count = 0;
+    const action = [
+        { remove: ['move-left', 'move-lefter'], add: [] },
+        { remove: ['move-lefter'], add: ['move-left'] },
+        { remove: ['move-left'], add: ['move-lefter'] },
+    ];
+    return function (evt) {
+        if (evt.target.classList.contains('arrowLeft')) count++;
+        if (evt.target.classList.contains('arrowRight')) count--;
+        if (count < 0) count = 2;
+        if (count > 2) count = 0;
+        const { add, remove } = action[count % 3];
+        testimonials.forEach(testimonial => {
+            remove.forEach(rem => testimonial.classList.remove(rem));
+            add.forEach(ad => testimonial.classList.add(ad));
+        });
+    };
+};
+
+document.querySelector('#testimonials').addEventListener('click', slideAction(this.evt));
+
+const toggleAction = function () {
+    const buttons = document.querySelectorAll('.operationsBtn');
+    return function (evt) {
+        if (evt.target.classList.contains('operationsBtn')) {
+            buttons.forEach(button => button.classList.remove('toggledBtn'));
+            evt.target.classList.add('toggledBtn');
+        }
+    };
+};
+
+document.querySelector('.operations-slider').addEventListener('click', toggleAction(this.evt));

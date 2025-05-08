@@ -45,6 +45,10 @@ html {
     top: -1.25rem;
 }
 
+.toggledBtn {
+    transform: translateY(-8px);
+}
+
 .operations-icon-bg {
     width: 100%;
     height: 100%;
@@ -67,12 +71,18 @@ html {
     border-radius: 50%;
     position: absolute;
     background-color: white;
+    z-index: 2;
 }
 
 .testimonials-quote {
     font-size: 15rem;
     top: -25%;
     color: green;
+}
+
+.testimonials-content {
+    min-width: 100%;
+    transition: all ease-in-out 0.5s;
 }
 
 .testimonial-photo {
@@ -95,4 +105,12 @@ h6 {
 
 .footer-copyright {
     color: rgb(149, 146, 146);
+}
+
+.move-left {
+    transform: translateX(-100%);
+}
+
+.move-lefter {
+    transform: translateX(-200%);
 }
