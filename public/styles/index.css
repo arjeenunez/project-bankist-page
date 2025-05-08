@@ -118,3 +118,7 @@ h6 {
 .move-lefter {
     transform: translateX(-200%);
 }
+
+.hidden {
+    display: none;
+}

@@ -25,10 +25,13 @@ document.querySelector('#testimonials').addEventListener('click', slideAction(th
 
 const toggleAction = function () {
     const buttons = document.querySelectorAll('.operationsBtn');
+    const operationsContent = document.querySelectorAll('.operations-content');
     return function (evt) {
         if (evt.target.classList.contains('operationsBtn')) {
             buttons.forEach(button => button.classList.remove('toggledBtn'));
             evt.target.classList.add('toggledBtn');
+            operationsContent.forEach(optn => optn.classList.add('hidden'));
+            operationsContent[evt.target.className.slice(17, 18)].classList.remove('hidden');
         }
     };
 };
