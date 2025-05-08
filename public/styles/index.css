@@ -45,6 +45,10 @@ html {
     top: -1.25rem;
 }
 
+.operationsBtn {
+    transition: all ease-in-out 0.1s;
+}
+
 .toggledBtn {
     transform: translateY(-8px);
 }
@@ -82,7 +86,7 @@ html {
 
 .testimonials-content {
     min-width: 100%;
-    transition: all ease-in-out 0.5s;
+    transition: all ease-in-out 0.75s;
 }
 
 .testimonial-photo {
