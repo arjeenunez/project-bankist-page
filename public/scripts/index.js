@@ -2,18 +2,27 @@
 
 const slideAction = function () {
     const testimonials = document.querySelectorAll('.testimonials-content');
+    const radioBtns = document.querySelectorAll(`.testRadio`);
     let count = 0;
     const action = [
-        { remove: ['move-left', 'move-lefter'], add: [] },
-        { remove: ['move-lefter'], add: ['move-left'] },
-        { remove: ['move-left'], add: ['move-lefter'] },
+        { button: 0, remove: ['move-left', 'move-lefter'], add: [] },
+        { button: 1, remove: ['move-lefter'], add: ['move-left'] },
+        { button: 2, remove: ['move-left'], add: ['move-lefter'] },
     ];
     return function (evt) {
         if (evt.target.classList.contains('arrowLeft')) count--;
         if (evt.target.classList.contains('arrowRight')) count++;
+        if (evt.target.classList.contains('testRadio0')) count = 0;
+        if (evt.target.classList.contains('testRadio1')) count = 1;
+        if (evt.target.classList.contains('testRadio2')) count = 2;
         if (count < 0) count = 2;
         if (count > 2) count = 0;
-        const { add, remove } = action[count % 3];
+        const { add, remove, button } = action[count % 3];
+        radioBtns.forEach((el, i) => {
+            el.removeAttribute('checked');
+            if (i === button) el.setAttribute('checked', true);
+        });
+        console.log(evt, count);
         testimonials.forEach(testimonial => {
             remove.forEach(rem => testimonial.classList.remove(rem));
             add.forEach(ad => testimonial.classList.add(ad));
@@ -46,7 +55,6 @@ const toggleModal = function (element) {
 
 window.document.addEventListener('click', function (evt) {
     const element = evt.target;
-    console.log(element);
     if (element.classList.contains('signupBtn')) {
         evt.preventDefault();
         toggleModal();
