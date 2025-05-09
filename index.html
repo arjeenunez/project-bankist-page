@@ -13,7 +13,7 @@
     </head>
     <body class="bg-body-tertiary position-relative">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary position-absolute container-fluid">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary position-absolute container-fluid pageSection">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <i class="bi bi-piggy-bank-fill fs-1"></i>
@@ -42,7 +42,8 @@
                             <a class="nav-link fs-5" href="#">Testimonials</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-success rounded-pill fs-5" href="#">Open Account</a>
+                            <!-- <a class="btn btn-success rounded-pill fs-5 signupBtn" href="#" data-bs-toggle="modal" data-bs-target="#signUpModal">Open Account</a> -->
+                            <a class="btn btn-success rounded-pill fs-5 signupBtn" href="#">Open Account</a>
                         </li>
                     </ul>
                 </div>
@@ -50,7 +51,7 @@
         </nav>
         <!-- Splash page -->
 
-        <div class="mainContainer container splash h-100 d-flex align-items-center justify-content-center p-0 border-bottom">
+        <div class="pageSection mainContainer container splash h-100 d-flex align-items-center justify-content-center p-0 border-bottom">
             <!-- Splash headline -->
 
             <div class="h-100 d-flex flex-column justify-content-center col">
@@ -69,7 +70,7 @@
                     </span>
                 </h2>
                 <h3 class="mt-4 mb-4">A simpler banking experience for a simpler life.</h3>
-                <a href="#" class="splash-link mt-3 fs-5 link-offset-3">Learn more ↓</a>
+                <a href="#features" class="splash-link mt-3 fs-5 link-offset-3">Learn more ↓</a>
             </div>
 
             <!-- Splash image -->
@@ -79,7 +80,7 @@
         </div>
 
         <!-- Feature -->
-        <div id="features" class="mainContainer container pb-5 border-bottom">
+        <div id="features" class="pageSection mainContainer container pb-5 border-bottom">
             <!-- Feature header -->
             <div class="row mt-5 pt-5 mb-5 pb-5">
                 <div class="col-8 m-auto">
@@ -136,7 +137,7 @@
                 </div>
             </div>
         </div>
-        <div id="operations" class="mainContainer container pb-5 border-bottom">
+        <div id="operations" class="pageSection mainContainer container pb-5 border-bottom">
             <!-- Operations header -->
             <div class="row mt-5 pt-5 mb-5 pb-5">
                 <div class="col-8 m-auto">
@@ -196,7 +197,7 @@
             </div>
         </div>
         <!-- Testimonials -->
-        <div id="testimonials" class="mainContainer container pb-5 border-bottom pt-5">
+        <div id="testimonials" class="pageSection mainContainer container pb-5 border-bottom pt-5">
             <div class="row mt-5 pt-5 mb-5 pb-5">
                 <div class="col-8 m-auto">
                     <h5 class="text-success fw-bold">NOT SURE YET?</h5>
@@ -264,15 +265,16 @@
             </div>
         </div>
         <!-- Footer / contact / join -->
-        <div id="joinPage" class="joinPage container-fluid border-bottom border-secondary">
+        <div id="joinPage" class="pageSection joinPage container-fluid border-bottom border-secondary">
             <div class="row">
                 <div class="col-7 m-auto d-flex flex-column align-items-center pt-5 pb-5">
                     <h2 class="fs-1 text-lightBlack text-center text-light">The best day to join Bankist was one year ago. The second best is today!</h2>
-                    <button type="button" class="btn btn-success pt-3 pb-3 ps-5 pe-5 fs-5 rounded-pill mt-5">Open your free account today!</button>
+                    <!-- <button type="button" class="btn btn-success pt-3 pb-3 ps-5 pe-5 fs-5 rounded-pill mt-5 signupBtn" data-bs-toggle="modal" data-bs-target="#signUpModal"> -->
+                    <button type="button" class="btn btn-success pt-3 pb-3 ps-5 pe-5 fs-5 rounded-pill mt-5 signupBtn">Open your free account today!</button>
                 </div>
             </div>
         </div>
-        <div class="joinPage container-fluid pt-5 pb-5">
+        <div class="pageSection joinPage container-fluid pt-5 pb-5">
             <div class="row text-center">
                 <ul class="list-unstyled d-flex text-light justify-content-between w-50 m-auto mb-5">
                     <li><a href="#" class="contact-links">About</a></li>
@@ -289,6 +291,41 @@
                     © Copyright by <span class="opacity-100 text-light">Jonas Schmedtmann</span>. Cloned by <span class="opacity-100 text-light">Arjee Nuñez</span> using HTML, JS, CSS, and Bootstrap.
                     Deployed on Render.
                 </p>
+            </div>
+        </div>
+        <div class="popupOverlay position-fixed hidden"></div>
+
+        <div class="popup col-5 bg-light m-auto p-4 pt-5 pb-5 position-fixed shadow-lg hidden">
+            <h4 class="fs-2 w-75 m-auto mb-5">
+                Open your bank account in just
+                <span class="position-relative"
+                    >5 minutes
+                    <div class="splash-heading-bg position-absolute"></div>
+                </span>
+            </h4>
+            <button type="button" class="btn-close position-absolute top-0 end-0 mt-3 me-3"></button>
+            <div class="container col-9">
+                <form action="#" method="post" class="d-flex flex-column">
+                    <div class="row mb-3">
+                        <label for="firstName" class="col-sm-4 col-form-label">First name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="firstName" name="firstName" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="lastName" class="col-sm-4 col-form-label">Last name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="lastName" name="lastName" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="email" class="col-sm-4 col-form-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="email" name="email" />
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success rounded-pill fs-5 w-50 m-auto mt-4 mb-3">Next step →</button>
+                </form>
             </div>
         </div>
     </body>
