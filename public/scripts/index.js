@@ -2,30 +2,33 @@
 
 const slideAction = function () {
     const testimonials = document.querySelectorAll('.testimonials-content');
-    const radioBtns = document.querySelectorAll(`.testRadio`);
+    const radioBtns = document.querySelectorAll('.testRadio');
     let count = 0;
+
+    const updateClasses = (elements, classes, action) => {
+        elements.forEach(element => {
+            classes.forEach(cls => element.classList[action](cls));
+        });
+    };
+
     const action = [
         { button: 0, remove: ['move-left', 'move-lefter'], add: [] },
         { button: 1, remove: ['move-lefter'], add: ['move-left'] },
         { button: 2, remove: ['move-left'], add: ['move-lefter'] },
     ];
+
     return function (evt) {
-        if (evt.target.classList.contains('arrowLeft')) count--;
-        if (evt.target.classList.contains('arrowRight')) count++;
+        if (evt.target.classList.contains('arrowLeft')) count = (count - 1 + 3) % 3;
+        if (evt.target.classList.contains('arrowRight')) count = (count + 1) % 3;
         if (evt.target.classList.contains('testRadio0')) count = 0;
         if (evt.target.classList.contains('testRadio1')) count = 1;
         if (evt.target.classList.contains('testRadio2')) count = 2;
-        if (count < 0) count = 2;
-        if (count > 2) count = 0;
-        const { add, remove, button } = action[count % 3];
-        radioBtns.forEach((el, i) => {
-            el.removeAttribute('checked');
-            if (i === button) el.setAttribute('checked', true);
-        });
-        console.log(evt, count);
+
+        const { add, remove, button } = action[count];
+        radioBtns.forEach((el, i) => el.classList.toggle('checked', i === button));
         testimonials.forEach(testimonial => {
-            remove.forEach(rem => testimonial.classList.remove(rem));
-            add.forEach(ad => testimonial.classList.add(ad));
+            updateClasses([testimonial], remove, 'remove');
+            updateClasses([testimonial], add, 'add');
         });
     };
 };
@@ -53,22 +56,11 @@ const toggleModal = function (element) {
     document.querySelectorAll('.pageSection').forEach(page => page.classList.toggle('blur'));
 };
 
-window.document.addEventListener('click', function (evt) {
+document.addEventListener('click', function (evt) {
     const element = evt.target;
+    if (element.classList.contains('signupBtn') || element.classList.contains('popupOverlay')) toggleModal();
     if (element.classList.contains('signupBtn')) {
         evt.preventDefault();
-        toggleModal();
-        document.querySelector('.btn-close').addEventListener('click', toggleModal);
-    } else if (element.classList.contains('popupOverlay')) {
-        toggleModal();
+        document.querySelector('.btn-close').addEventListener('click', toggleModal, { once: true });
     }
 });
-
-// buttons.forEach(button =>
-//     button.addEventListener('click', evt => {
-//         evt.preventDefault();
-//         document.querySelector('.popup').classList.toggle('hidden');
-//         document.querySelector('.popupOverlay').classList.toggle('hidden');
-//         document.querySelectorAll('.pageSection').forEach(el => el.classList.toggle('blur'));
-//     }),
-// );

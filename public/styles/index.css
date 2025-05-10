@@ -73,13 +73,9 @@ html {
 }
 
 .testRadio {
-    display: flex;
-    justify-content: center;
-    border: none;
-    width: 1.1rem;
-    height: 1.5rem;
-    padding: 0;
-    margin: 0;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
 }
 
 .arrowContainer {
@@ -157,4 +153,8 @@ h6 {
 .blur {
     filter: blur(5px);
     z-index: 4;
+}
+
+.checked {
+    background-color: green;
 }
