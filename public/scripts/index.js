@@ -56,11 +56,64 @@ const toggleModal = function (element) {
     document.querySelectorAll('.pageSection').forEach(page => page.classList.toggle('blur'));
 };
 
-document.addEventListener('click', function (evt) {
+const signup = function (evt) {
     const element = evt.target;
-    if (element.classList.contains('signupBtn') || element.classList.contains('popupOverlay')) toggleModal();
+    const popupOverlay = document.querySelector('.popupOverlay');
+    if (element.classList.contains('signupBtn')) toggleModal();
+    popupOverlay.addEventListener('click', toggleModal, { once: true });
     if (element.classList.contains('signupBtn')) {
         evt.preventDefault();
         document.querySelector('.btn-close').addEventListener('click', toggleModal, { once: true });
     }
+};
+
+document.querySelector('#joinPage').addEventListener('click', function (evt) {
+    if (evt.target.classList.contains('signupBtn')) {
+        signup(evt);
+    }
 });
+
+document.querySelector('.navbar-nav').addEventListener('click', function (evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+    if (evt.target.classList.contains('nav-link')) {
+        const id = evt.target.getAttribute('href');
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+        return;
+    }
+    signup(evt);
+
+    // const el = document.querySelector(id).getBoundingClientRect();
+    // window.scrollTo({ left: el.left + window.pageXOffset, top: el.top + window.pageYOffset, behavior: 'smooth' });
+});
+
+const opaqueLinks = function (evt) {
+    const links = this.querySelectorAll('.nav-link');
+    const logo = this.querySelector('.navbar-brand');
+    const selectedLink = evt.target;
+    if (!selectedLink.classList.contains('nav-link')) {
+        links.forEach(link => link.classList.remove('opaque'));
+        return;
+    }
+    logo.classList.toggle('opaque');
+    links.forEach(link => link.classList.toggle('opaque', selectedLink.getAttribute('href') !== link.getAttribute('href')));
+};
+
+document.querySelector('.navbar').addEventListener('mouseover', opaqueLinks);
+
+document.querySelector('.navbar').addEventListener('mouseout', opaqueLinks);
+
+const observerFunc = function (entries) {
+    const [entry] = entries;
+    const nav = document.querySelector('.navbar');
+    nav.classList.toggle('sticky', !entry.isIntersecting);
+};
+
+const observerOptns = {
+    root: null,
+    threshold: 0,
+    rootMargin: '-90px',
+};
+
+const observer = new IntersectionObserver(observerFunc, observerOptns);
+observer.observe(document.querySelector('.splash'));

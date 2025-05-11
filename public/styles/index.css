@@ -8,6 +8,17 @@ html {
     width: 80%;
 }
 
+.navbar {
+    position: absolute;
+    z-index: 10;
+    transition: all ease-in-out 250ms;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
 .text-lightBlack {
     color: rgb(67, 67, 67);
 }
@@ -136,6 +147,7 @@ h6 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 11;
 }
 
 .popupOverlay {
@@ -144,6 +156,7 @@ h6 {
     background-color: rgba(0, 0, 0, 0.25);
     top: 0;
     left: 0;
+    z-index: 11;
 }
 
 .hidden {
@@ -157,4 +170,17 @@ h6 {
 
 .checked {
     background-color: green;
+}
+
+.opaque {
+    opacity: 0.35;
+}
+
+.moveUp {
+    transform: translateY(-600px);
+}
+
+.nav-link,
+.navbar-brand {
+    transition: all ease-in-out 400ms;
 }
