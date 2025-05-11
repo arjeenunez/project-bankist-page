@@ -14,6 +14,10 @@ html {
     transition: all ease-in-out 250ms;
 }
 
+.section {
+    transition: all ease-in-out 350ms;
+}
+
 .sticky {
     position: fixed;
     top: 0;
@@ -176,8 +180,9 @@ h6 {
     opacity: 0.35;
 }
 
-.moveUp {
-    transform: translateY(-600px);
+.to-slideUp {
+    transform: translateY(200px);
+    opacity: 0;
 }
 
 .nav-link,

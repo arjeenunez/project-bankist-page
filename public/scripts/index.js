@@ -53,7 +53,7 @@ document.querySelector('.operations-slider').addEventListener('click', toggleAct
 const toggleModal = function (element) {
     document.querySelector('.popup').classList.toggle('hidden');
     document.querySelector('.popupOverlay').classList.toggle('hidden');
-    document.querySelectorAll('.pageSection').forEach(page => page.classList.toggle('blur'));
+    document.querySelectorAll('.blurSection').forEach(page => page.classList.toggle('blur'));
 };
 
 const signup = function (evt) {
@@ -117,3 +117,45 @@ const observerOptns = {
 
 const observer = new IntersectionObserver(observerFunc, observerOptns);
 observer.observe(document.querySelector('.splash'));
+
+const sectionObserverOptns = {
+    root: null,
+    threshold: 0,
+};
+const sectionObserverFn = (entries, sectionObserver) => {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+        entry.target.classList.remove('to-slideUp');
+        sectionObserver.unobserve(entry.target);
+    }
+};
+const sectionObserver = new IntersectionObserver(sectionObserverFn, sectionObserverOptns);
+
+document.querySelectorAll('.section').forEach(el => {
+    el.classList.add('to-slideUp');
+    sectionObserver.observe(el);
+});
+
+const imgObserverFn = (entries, imgObserver) => {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+        const imgNode = entry.target;
+        entry.target.src = imgNode.dataset.src;
+
+        imgNode.addEventListener('load', function () {
+            this.classList.remove('blur');
+        });
+    }
+};
+
+const imgObserverOptns = {
+    root: null,
+    threshold: 0.1,
+};
+
+const imgObserver = new IntersectionObserver(imgObserverFn, imgObserverOptns);
+
+document.querySelectorAll('img[data-src]').forEach(img => {
+    img.classList.add('blur');
+    imgObserver.observe(img);
+});
