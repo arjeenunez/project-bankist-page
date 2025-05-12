@@ -13,7 +13,7 @@
     </head>
     <body class="bg-body-tertiary position-relative">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary container-fluid blurSection">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary container-fluid to-blur">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <i class="bi bi-piggy-bank-fill fs-1"></i>
@@ -50,7 +50,7 @@
         </nav>
         <!-- Splash page -->
 
-        <div class="blurSection mainContainer container splash h-100 d-flex align-items-center justify-content-center p-0 border-bottom">
+        <div id="splash" class="to-blur mainContainer container h-100 d-flex align-items-center justify-content-center p-0 border-bottom">
             <!-- Splash headline -->
 
             <div class="h-100 d-flex flex-column justify-content-center col">
@@ -58,14 +58,14 @@
                     When
                     <span class="position-relative">
                         banking
-                        <div class="splash-heading-bg position-absolute"></div>
+                        <div class="text-background-skewed position-absolute"></div>
                     </span>
                     meets
                 </h2>
                 <h2 class="splash-heading">
                     <span class="position-relative">
                         minimalist
-                        <div class="splash-heading-bg position-absolute"></div>
+                        <div class="text-background-skewed position-absolute"></div>
                     </span>
                 </h2>
                 <h3 class="mt-4 mb-4">A simpler banking experience for a simpler life.</h3>
@@ -79,7 +79,7 @@
         </div>
 
         <!-- Feature -->
-        <div id="features" class="blurSection mainContainer container pb-5 border-bottom section">
+        <div id="features" class="to-blur mainContainer container pb-5 border-bottom section">
             <!-- Feature header -->
             <div class="row mt-5 pt-5 mb-5 pb-5">
                 <div class="col-8 m-auto">
@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div id="operations" class="blurSection mainContainer container pb-5 border-bottom section">
+        <div id="operations" class="to-blur mainContainer container pb-5 border-bottom section">
             <!-- Operations header -->
             <div class="row mt-5 pt-5 mb-5 pb-5">
                 <div class="col-8 m-auto">
@@ -196,7 +196,7 @@
             </div>
         </div>
         <!-- Testimonials -->
-        <div id="testimonials" class="blurSection mainContainer container pb-5 pt-5 mb-5 section">
+        <div id="testimonials" class="to-blur mainContainer container pb-5 pt-5 mb-5 section">
             <div class="row mt-5 pt-5 mb-5 pb-5">
                 <div class="col-8 m-auto">
                     <h5 class="text-success fw-bold">NOT SURE YET?</h5>
@@ -206,23 +206,13 @@
             <div class="testimonials-slider position-relative mb-5 me-auto ms-auto pb-4">
                 <div class="arrowContainer arrowLeft btn end-100 top-50 translate-middle-y bg-light fs-3">←</div>
                 <div class="arrowContainer arrowRight btn start-100 top-50 translate-middle-y bg-light fs-3">→</div>
-                <!-- <div class="btn-group btn-group-sm position-absolute bottom-0 start-50 translate-middle-x" role="group" aria-label="Vertical radio toggle button group">
-                    <input type="radio" class="btn-check radio1" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked />
-                    <label class="btn btn-outline-success" for="vbtn-radio1">•</label>
-                    <input type="radio" class="btn-check radio2" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" />
-                    <label class="btn btn-outline-success" for="vbtn-radio2">•</label>
-                    <input type="radio" class="btn-check radio3" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
-                    <label class="btn btn-outline-success" for="vbtn-radio3">•</label>
-                </div> -->
                 <div class="testRadios btn-group position-absolute bottom-0 start-50 translate-middle-x">
                     <div class="testRadio testRadio0 border border-secondary rounded-circle p1 checked"></div>
                     <div class="testRadio testRadio1 border border-secondary rounded-circle p1"></div>
                     <div class="testRadio testRadio2 border border-secondary rounded-circle p1"></div>
-                    <!-- <input type="radio" name="doNothing" class="testRadio testRadio0" checked />
-                    <input type="radio" name="doNothing" class="testRadio testRadio1" />
-                    <input type="radio" name="doNothing" class="testRadio testRadio2" /> -->
                 </div>
                 <div class="d-flex testimonials-content-container overflow-hidden">
+                    <!-- <div class="d-flex testimonials-content-container"> -->
                     <div class="testimonials-content tc-1 pt-5 pb-5 position-relative">
                         <span class="testimonials-quote position-absolute">"</span>
                         <div class="row w-75 m-auto">
@@ -280,7 +270,7 @@
             </div>
         </div>
         <!-- Footer / contact / join -->
-        <div id="joinPage" class="blurSection joinPage container-fluid border-bottom border-secondary">
+        <div id="joinPage" class="to-blur joinPage container-fluid border-bottom border-secondary">
             <div class="row">
                 <div class="col-7 m-auto d-flex flex-column align-items-center pt-5 pb-5">
                     <h2 class="fs-1 text-lightBlack text-center text-light">The best day to join Bankist was one year ago. The second best is today!</h2>
@@ -288,7 +278,7 @@
                 </div>
             </div>
         </div>
-        <div class="blurSection joinPage container-fluid pt-5 pb-5">
+        <div class="to-blur joinPage container-fluid pt-5 pb-5">
             <div class="row text-center">
                 <ul class="list-unstyled d-flex text-light justify-content-between w-50 m-auto mb-5">
                     <li><a href="#" class="contact-links">About</a></li>
@@ -314,7 +304,7 @@
                 Open your bank account in just
                 <span class="position-relative"
                     >5 minutes
-                    <div class="splash-heading-bg position-absolute"></div>
+                    <div class="text-background-skewed position-absolute"></div>
                 </span>
             </h4>
             <button type="button" class="btn-close position-absolute top-0 end-0 mt-3 me-3"></button>

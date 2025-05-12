@@ -3,19 +3,8 @@
 const slideAction = function () {
     const testimonials = document.querySelectorAll('.testimonials-content');
     const radioBtns = document.querySelectorAll('.testRadio');
+
     let count = 0;
-
-    const updateClasses = (elements, classes, action) => {
-        elements.forEach(element => {
-            classes.forEach(cls => element.classList[action](cls));
-        });
-    };
-
-    const action = [
-        { button: 0, remove: ['move-left', 'move-lefter'], add: [] },
-        { button: 1, remove: ['move-lefter'], add: ['move-left'] },
-        { button: 2, remove: ['move-left'], add: ['move-lefter'] },
-    ];
 
     return function (evt) {
         if (evt.target.classList.contains('arrowLeft')) count = (count - 1 + 3) % 3;
@@ -24,12 +13,8 @@ const slideAction = function () {
         if (evt.target.classList.contains('testRadio1')) count = 1;
         if (evt.target.classList.contains('testRadio2')) count = 2;
 
-        const { add, remove, button } = action[count];
-        radioBtns.forEach((el, i) => el.classList.toggle('checked', i === button));
-        testimonials.forEach(testimonial => {
-            updateClasses([testimonial], remove, 'remove');
-            updateClasses([testimonial], add, 'add');
-        });
+        radioBtns.forEach((el, i) => el.classList.toggle('checked', i === count % 3));
+        testimonials.forEach((el, i) => (el.style = `transform: translateX(${-100 * count}%)`));
     };
 };
 
@@ -53,7 +38,7 @@ document.querySelector('.operations-slider').addEventListener('click', toggleAct
 const toggleModal = function (element) {
     document.querySelector('.popup').classList.toggle('hidden');
     document.querySelector('.popupOverlay').classList.toggle('hidden');
-    document.querySelectorAll('.blurSection').forEach(page => page.classList.toggle('blur'));
+    document.querySelectorAll('.to-blur').forEach(page => page.classList.toggle('blur'));
 };
 
 const signup = function (evt) {
@@ -116,7 +101,7 @@ const observerOptns = {
 };
 
 const observer = new IntersectionObserver(observerFunc, observerOptns);
-observer.observe(document.querySelector('.splash'));
+observer.observe(document.querySelector('#splash'));
 
 const sectionObserverOptns = {
     root: null,
@@ -144,6 +129,7 @@ const imgObserverFn = (entries, imgObserver) => {
 
         imgNode.addEventListener('load', function () {
             this.classList.remove('blur');
+            imgObserver.unobserve(entry.target);
         });
     }
 };

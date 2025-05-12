@@ -33,7 +33,7 @@ html {
     color: rgb(67, 67, 67);
 }
 
-.splash-heading-bg {
+.text-background-skewed {
     width: 100%;
     height: 100%;
     background: linear-gradient(145deg, rgb(159, 228, 159), rgb(0, 205, 205));
